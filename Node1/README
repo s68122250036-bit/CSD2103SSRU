@@ -1,0 +1,58 @@
+ข้อ 1 ค้นหา Node ที่มีค่า blue
+
+โปรแกรมใช้ตัวแปร curr ในการเดินผ่าน Node ตั้งแต่ head ไปจนถึง Node สุดท้าย
+Node1<String> curr = head;
+
+while (curr != null) {
+    if (curr.value.equals("blue")) {
+        System.out.println("พบ Node ที่มีค่า blue");
+        break;
+    }
+
+    curr = curr.next;
+}
+หลักการทำงาน
+1.กำหนด curr ให้เริ่มต้นที่ head
+2.ตรวจสอบค่าของ curr.value
+3.ถ้าค่าเป็น "blue" แสดงว่าพบ Node ที่ต้องการ
+4.ถ้ายังไม่พบ ให้ curr เลื่อนไปยัง Node ถัดไปด้วย curr = curr.next
+5.ทำซ้ำจนกว่าจะพบ blue หรือ curr เป็น null
+
+ข้อ 2 นับจำนวน Node ใน List
+
+สร้าง Method countNodes() สำหรับนับจำนวน Node ทั้งหมดใน Linked List
+public static int countNodes(Node1<String> head) {
+
+    int count = 0;
+    Node1<String> curr = head;
+
+    while (curr != null) {
+        count++;
+        curr = curr.next;
+    }
+
+    return count;
+}
+หลักการทำงาน
+1.กำหนด count เริ่มต้นเป็น 0
+2.ให้ curr เริ่มต้นที่ head
+3.ทุกครั้งที่พบ Node ให้เพิ่ม count ขึ้น 1
+4.เลื่อนไปยัง Node ถัดไปด้วย curr = curr.next
+5.เมื่อ curr เป็น null แสดงว่าเดินครบทุก Node แล้ว
+6.ส่งค่าจำนวน Node กลับด้วย return count
+
+ผลลัพธ์
+จาก Linked List
+red → green → pink → blue → null
+
+ตัวอย่างผลลัพธ์จากการทำงานของโปรแกรม
+p = Node1@2b2fa4f7
+p.value = red
+p.next before = null
+q = Node1@7ad041f3
+q.value = green
+q.next = null
+head = Node1@2b2fa4f7
+พบ Node ที่มีค่า blue
+blue อยู่ที่ Node = Node1@251a69d7
+จำนวน Node ใน List = 4
